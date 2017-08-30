@@ -3,11 +3,11 @@
 #include <algorithm>
 #include <cctype>
 
-class MyTransform {
+class Transform {
 private :
    int shift ;
 public :
-   MyTransform( int s ) : shift( s ) { }
+   Transform( int s ) : shift( s ) { }
 
   char operator( )( char c ) {
       if ( isspace( c ) )
@@ -33,12 +33,12 @@ int main( ) {
    std::cin >> myshift ;
    std::cout << "Before encryption:\n" << input << std::endl ;
    std::transform ( input.begin( ) , input.end( ) , input.begin( ) ,
-	 MyTransform( myshift ) ) ;
+	 Transform( myshift ) ) ;
    std::cout << "encrypted:\n" ;
    std::cout << input << std::endl ;
    myshift *= -1 ; //decrypting again
    std::transform ( input.begin( ) , input.end( ) , input.begin( ) ,
-	 MyTransform( myshift ) ) ;
+	 Transform( myshift ) ) ;
    std::cout << "Decrypted again:\n" ;
    std::cout << input << std::endl ;
    return 0 ;
